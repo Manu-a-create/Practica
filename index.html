@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Candy shop</title>
+    
+    <style>
+        body {
+            background-color: #e4caf5;
+            font-family: cursive;
+            text-decoration: none;
+            color: rgb(177, 64, 149);
+            margin: 0;
+            padding: 0;
+        }
+
+.header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #fdfdfc, #f8f4ff);
+            border-bottom: 2px solid rgb(177, 64, 149);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .icons-container {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .icon-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgb(177, 64, 149), #8f6581);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(177, 64, 149, 0.2);
+            cursor: pointer;
+        }
+
+        .icon-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(177, 64, 149, 0.4);
+            background: linear-gradient(135deg, #8f6581, rgb(177, 64, 149));
+        }
+
+        .icon {
+            font-size: 16px;
+        }
+
+
+        .titulo {
+           margin-top: -40px !important;
+            
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            width: 290px !important;     
+            height: 220px !important;
+            object-fit: cover;
+        }
+
+        .ae {
+            text-decoration: none;
+            color: rgb(177, 64, 149);
+        }
+
+       .menu {
+         color: rgb(177, 64, 149);
+       }
+
+        
+        .ul-container {
+            margin-top: -60px;
+            margin-bottom: 0;
+        }
+
+        .Inicio {
+            border: 2px solid rgb(177, 64, 149);
+            background: #fdfdfc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        li {
+            display: inline-block;
+            text-align: center;
+            margin: 0 10px;
+        }
+
+        li a {
+            display: block;
+            color: rgb(177, 64, 149);
+            padding: 14px 16px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            border: none;
+            background: transparent;
+        }
+
+        li a:hover {
+            background-color: #8f6581;
+            color: white;
+            border-radius: 25px;
+        }
+
+       
+        .marco {
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 0;
+            border: 2px solid rgb(177, 64, 149);
+            width: 100%;
+            height: 400px;
+            display: block;
+        }
+
+        .contenedor {
+            position: relative;
+            width: 100%;
+            height: 400px;
+        }
+
+        table {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-image: url(https://i.pinimg.com/736x/39/7e/9f/397e9f64b443b9d7483504cf336aea62.jpg);
+            box-shadow: #553416;
+            border-radius: 10px;
+            border: 2px solid rgb(177, 64, 149);
+            color: rgb(177, 64, 149);
+        }
+
+        .table li {
+            display: inline-block;
+        }
+
+        table a {
+            display: block;
+            text-decoration: none;
+            padding: 10px 20px;
+            color: #333;
+        }
+
+        .table a:hover {
+            background-color: #553416;
+        }
+
+        .imagen {
+            border: 2px solid rgb(177, 64, 149);
+            border-radius: 10%;
+            box-shadow: 10px 10px 10px rgba(177, 64, 149, 0.7);
+        }
+
+     .galeria {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.galeria img {
+  border-radius: 20px;
+  transition: transform 0.5s, box-shadow 0.5s;
+   width: px;
+  height: 230px;
+}
+
+.galeria img:hover {
+  transform: scale(1.2) rotate(5deg);
+  box-shadow: 0 5px 20px rgba(192, 151, 178, 0.644);
+}
+
+footer {
+  text-align: center;
+  background: linear-gradient(135deg, #8f6581, rgb(177, 64, 149));
+  color: white;
+  padding: 60px;
+  margin-top: 60px;
+  border-radius: 20px 20px 0 0;
+}    
+    </style>
+</head>
+
+<div class="header-container">
+        <div></div>
+        <div class="icons-container">
+            <a href="tel:+18095551234" class="icon-item">
+                <span class="icon">📞</span>
+                <span>(809) 555-1234</span>
+            </a>
+            
+            <div class="icon-item" onclick="abrirMiCuenta()">
+                <span class="icon">👤</span>
+                <span>Mi Cuenta</span>
+            </div>
+            
+            <div class="icon-item" onclick="abrirCarrito()">
+                <span class="icon">🛒</span>
+                <span>Carrito</span>
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
+        </div>
+    </div>
+
+
+<body>
+    <center>
+        <img class="titulo" src="C:\Users\manuela\Pictures\candy.png" >
+    </center>
+
+    <center>
+        <div class="ul-container">
+            <ul class="Inicio">
+                <li><a href="file:///C:/Users/manuela/Desktop/INICIO-CANDY.html">Inicio</a></li>
+                <li><a href="file:///C:/Users/manuela/Desktop/GALERIA-CANDY.html">Nuestros postres</a></li>
+                <li><a href="file:///C:/Users/manuela/Desktop/CONTACTENOS-CANDY.html">Contactenos</a></li>
+                <li><a href="file:///C:/Users/manuela/Desktop/SOBRENOSOSTROS-CANDY.html#">¿Quienes-somos?</a></li>
+                <li><a href="https://hpttselblogdemanuela.blogspot.com/2024/03/aprendiendo-los-saludos.html">Nuestro-Blog</a></li>
+            </ul>
+        </div>
+    </center>
+
+    <div class="contenedor">
+        <img class="marco" src="https://i.pinimg.com/1200x/7c/fc/e7/7cfce71c8a9309e5a36cd8956ae4a763.jpg" width="100%" height="400px" alt="Imagen">
+    </div>
+  
+    <div class="table">
+        <center>
+           
+                <caption><h1 class="menu"><strong><u>Menu</u></strong></h1></caption>
+                 <div class="galeria">
+
+      <a href="https://www.pinterest.com/search/pins/?q=cupcakes&rs=ac&len=3&source_id=ac_QfiJFkcW&eq=cup&etslf=5885">
+  <img src="C:\Users\manuela\Pictures\cup.jpg" >
+</a>
+         <a href="https://www.pinterest.com/search/pins/?q=helados&rs=ac&len=6&source_id=ac_DQ66t9Ya&eq=helado&etslf=7113">
+  <img src="C:\Users\manuela\Pictures\ice.jpg">
+</a>
+
+   <a href="https://www.pinterest.com/search/pins/?q=reposteria&rs=typed">
+  <img src="C:\Users\manuela\Pictures\baked.jpg" >
+</a>
+
+
+   <a href="https://www.pinterest.com/search/pins/?q=pasteles&rs=typed">
+  <img src="C:\Users\manuela\Pictures\cake.jpg" >
+</a>
+
+   <a href="https://www.pinterest.com/search/pins/?q=malteadas&rs=typed">
+  <img src="C:\Users\manuela\Pictures\malte.jpg" >
+</a>
+    </div>
+        </center>
+    </div>
+
+    <br>
+    <center>
+        <h1>Precios</h1>
+        <table border="6" cellspacing="15" cellpadding="18" style="color: rgb(100, 72, 29);" bgcolor="white">
+            <tr>
+                <td>Precios</td>
+                <td>Cupcakes</td>
+                <td>Helados</td>
+                <td>Bakeds</td>
+                <td>Pasteles</td>
+                <td>Malteadas</td>
+            </tr>
+            <tr>
+                <td>1,000,000</td>
+                <td>Cupcake de chocolate</td>
+                <td>Helado de chocolate</td>
+                <td>Bakeds de chocolate</td>
+                <td>Pasteles de chocolate</td>
+                <td>Malteadas de chocolate</td>
+            </tr>
+            <tr>
+                <td>100,000</td>
+                <td>Cupcakes de frutas</td>
+                <td>Helado de frutas</td>
+                <td>Bakeds de frutas</td>
+                <td>Pasteles de frutas</td>
+                <td>Malteadas de frutas</td>
+            </tr>
+            <tr>
+                <td>50,000</td>
+                <td>Cupcakes de sabores</td>
+                <td>Helado de sabores</td>
+                <td>Bakeds de sabores</td>
+                <td>Pasteles de sabores</td>
+                <td>Malteadas de sabores</td>
+            </tr>
+        </table>
+    </center>
+
+
+
+  <footer>
+    <p>&copy; Manuela´s Candy shop</p>
+    <p>&copy; Contactanos en nuestras redes sociales</p>
+    <p><a href="https://www.instagram.com/" style="color: white; text-decoration: none;">📱 Instagram</a></p>
+    <p><a href="https://www.facebook.com/" style="color: white; text-decoration: none;">📘 Facebook</a></p>
+    <p><a href="https://x.com/?lang=en" style="color: white; text-decoration: none;">🐦 Twitter</a></p>
+  </footer>
+
+</body>
+</html>

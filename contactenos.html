@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+
+  <style>
+
+body {
+                    font-family: cursive;
+                    
+                    margin: 0;
+                    padding: 0;
+                  
+                    align-items: center;
+                    justify-content: horizontal;
+                    height: 100vh;
+                   background-color: #e4caf5;
+font-family: cursive;
+text-decoration: none;
+color:rgb(243, 237, 237);
+border: rgba(98, 31, 100, 0.767);
+}
+        
+.header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #fdfdfc, #f8f4ff);
+            border-bottom: 2px solid rgb(177, 64, 149);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .icons-container {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .icon-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgb(177, 64, 149), #8f6581);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(177, 64, 149, 0.2);
+            cursor: pointer;
+        }
+
+        .icon-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(177, 64, 149, 0.4);
+            background: linear-gradient(135deg, #8f6581, rgb(177, 64, 149));
+        }
+
+        .icon {
+            font-size: 16px;
+        }
+
+
+
+.titulo {
+           margin-top: -40px !important;
+            
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            width: 290px !important;     
+            height: 220px !important;
+            object-fit: cover;
+        }
+
+        .ae {
+            text-decoration: none;
+            color: rgb(177, 64, 149);
+        }
+
+       .menu {
+         color: rgb(177, 64, 149);
+       }
+
+        
+        .ul-container {
+            margin-top: -60px;
+            margin-bottom: 0;
+        }
+
+        .Inicio {
+            border: 2px solid rgb(177, 64, 149);
+            background: #fdfdfc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        li a {
+            display: block;
+            color: rgb(177, 64, 149);
+            padding: 14px 16px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            border: none;
+            background: transparent;
+        }
+
+        li a:hover {
+            background-color: #8f6581;
+            color: white;
+            border-radius: 25px;
+        }
+
+       
+        .marco {
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 0;
+            border: 2px solid rgb(177, 64, 149);
+            width: 100%;
+            height: 400px;
+            display: block;
+        }
+
+        .contenedor {
+            position: relative;
+            width: 100%;
+            height: 400px;
+        }
+        
+                form {
+                    background-image: url('C:\Users\manuela\Pictures\bbb.jpg') !important;
+                    padding: 15px;
+                    border-radius: 15px;
+                    margin-left: 450px;
+                    width: 400px;
+                    max-width: 100%;
+                    box-shadow: #523448;
+                    color: rgb(246, 249, 252);
+                    background-color: #8f6581;
+                    
+                }
+               
+                  
+                
+        
+                h2 {
+                    text-align: center;
+                    color: #faf2f2;
+                }
+        
+                label {
+                    display: block;
+                    margin: 15px 0 5px;
+                    font-weight: bold;
+                    color: #faf8f8;
+                }
+        
+                input[type="text"],
+                input[type="email"],
+                textarea,
+                select {
+                    width: 100%;
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    box-sizing: border-box;
+                    border: 1px solid #f1f2f525;
+                    border-radius: 4px;
+                }
+        
+               
+        
+                select {
+                    appearance: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    padding: 10px;
+                    background-color: #c1dce4e7;
+                    border: 1px solid #3c998900;
+                    border-radius: 4px;
+                }
+        
+                input[type="submit"] {
+                    background-color: #d4eef857;
+                    color: #4b05526e;
+                    padding: 15px;
+                    border: 5px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-size: 16px;
+                    
+                }
+        
+                input[type="submit"]:hover {
+                    background-color: #fad0f8ec;
+                }
+
+ footer {
+  text-align: center;
+  background: linear-gradient(135deg, #8f6581, rgb(177, 64, 149));
+  color: white;
+  padding: 60px;
+  margin-top: 60px;
+  border-radius: 20px 20px 0 0;
+}   
+
+
+
+
+  </style>
+
+<div class="header-container">
+    <div></div> <!-- Espaciador para centrar el logo -->
+    <div class="icons-container">
+        <a href="tel:+18095551234" class="icon-item">
+            <span class="icon">📞</span>
+            <span>(809) 555-1234</span>
+        </a>
+        
+        <a href="#" class="icon-item">
+            <span class="icon">👤</span>
+            <span>Mi Cuenta</span>
+        </a>
+        
+        <a href="#" class="icon-item">
+            <span class="icon">🛒</span>
+            <span>Carrito</span>
+            <span class="cart-count">3</span>
+        </a>
+    </div>
+</div>
+
+
+   <center>
+        <img class="titulo" src="C:\Users\manuela\Pictures\candy.png" >
+    </center>
+
+    <center>
+   <center>
+        <div class="ul-container">
+            <ul class="Inicio">
+                <li><a href="file:///C:/Users/manuela/Desktop/INICIO-CANDY.html">Inicio</a></li>
+                <li><a href="file:///C:/Users/manuela/Desktop/GALERIA-CANDY.html">Nuestros postres</a></li>
+                <li><a href="file:///C:/Users/manuela/Desktop/CONTACTENOS-CANDY.html">Contactenos</a></li>
+                <li><a href="file:///C:/Users/manuela/Desktop/SOBRENOSOSTROS-CANDY.html#">¿Quienes-somos?</a></li>
+                <li><a href="https://hpttselblogdemanuela.blogspot.com/2024/03/aprendiendo-los-saludos.html">Nuestro-Blog</a></li>
+            </ul>
+        </div>
+    </center>
+    </center>
+<center><h1>Contactenos</h1></center>
+<bgcolor="beige"></bgcolor>
+
+<br>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Reporte</title>
+</head>
+<body>
+
+<h2>Formulario de Reporte</h2>
+<div class="form-container">
+<form action="procesar_reporte.php" method="post">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    
+    <br>
+    <br>
+
+    <label for="correo">Correo Electrónico:</label>
+    <input type="email" id="correo" name="correo" required>
+
+    <br><br>
+
+    <label for="motivo">Asunto:</label>
+    <textarea id="motivo" name="motivo" rows="4" required></textarea>
+
+    <br><br>
+
+    <label for="categoria">Categoría del Problema:</label>
+    <select id="categoria" name="categoria" required>
+        <option value="bug">Error/bug</option>
+        <option value="sugerencia">Sugerencia</option>
+        <option value="otro">Otro</option>
+    </select>
+
+    <br><br>
+
+   
+    <br><br>
+
+    <label for="adjunto">Adjuntar Archivo (opcional):</label>
+    <input type="file" id="adjunto" name="adjunto">
+
+    <br><br>
+
+    <input type="submit" value="Enviar Reporte">
+</form>
+</div>
+<br>
+
+<center>
+<img src="https://i.pinimg.com/1200x/b5/dd/e7/b5dde7ca413bcc1a612198a44e9c8b54.jpg" width="50%" height="160"></img>
+<h2>
+<p>Para consultas generales, contáctenos por correo electrónico:</p>
+<p>Correo Electrónico: <a href="mailto:manus@gmail.com">manu@gmail.com</a></p>
+
+
+ 
+</h2>
+</center>
+
+<script>
+      alert('¡hola!');
+
+</script>
+<script>
+  const usuario = prompt('¿cual es tu nombre?');
+  alert("¡hola, " + usuario + "!");
+</script>
+<noscript>
+  <p>¡hola, usuario!</p>     
+
+</noscript>
+
+<center>
+        <a href="file:///C:/Users/manuela/Desktop/Pagina%20final%20grupo%201/practica%20(2).html#primero" 
+           style="display: inline-block; background: linear-gradient(45deg, rgb(177, 64, 149), #8f6581); color: white; padding: 12px 25px; text-decoration: none; border-radius: 25px; font-weight: bold; border: 2px solid rgb(177, 64, 149); transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(177, 64, 149, 0.3);"
+           onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 20px rgba(177, 64, 149, 0.5)';"
+           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(177, 64, 149, 0.3)';">
+           🏠 Volver al Inicio
+        </a>
+    </center>
+
+    <footer>
+    <p>&copy; Manuela´s Candy shop</p>
+    <p>&copy; Contactanos en nuestras redes sociales</p>
+    <p><a href="https://www.instagram.com/">Instagram</a></p>
+    <p><a href="https://www.facebook.com/">Facebook</a></p>
+    <p><a href="https://x.com/?lang=en">Twitter</a></p>
+  </footer>
+
+</body>
+</head>
+</html>
+
