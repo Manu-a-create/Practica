@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grupo 1 - Registro</title>
+    <style>
+        /* CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #afcbe9;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #888383;
+            padding: 0.5em 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            display: block;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #afcbe9;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Ocultar "páginas" por defecto */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        h2 {
+            color: #afcbe9;
+            border-bottom: 2px solid #afcbe9;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos del Formulario */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1e7e34;
+        }
+        
+        /* Estilos de la Tabla de Registros */
+        #registrosTable {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        #registrosTable th, #registrosTable td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        #registrosTable th {
+            background-color: #afcbe9;
+            color: white;
+        }
+        
+        .action-btn {
+            padding: 5px 10px;
+            margin-right: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 3px;
+            color: white;
+        }
+
+        .edit-btn { background-color: #e6b55b; color: #333; }
+        .delete-btn { background-color: #d6717b; }
+        .save-btn { background-color: #80dd96; display: none; }
+        .cancel-btn { background-color: #748b9e; display: none; }
+
+        .search-container {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .search-container input {
+            flex-grow: 1;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Registrate</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#" data-page="home" class="active">Inicio</a></li>
+            <li><a href="#" data-page="about">Acerca de</a></li>
+            <li><a href="#" data-page="registro">Registro</a></li>
+            <li><a href="#" data-page="data">Ver Datos</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <div id="home" class="page active">
+            <h2>Bienvenido a Nuestro Sitio</h2>
+            <p>Este sitio simula múltiples páginas (SPA) y una gestión básica de datos de registro usando solo HTML, CSS y JavaScript.</p>
+            <p>Usa la barra de navegación para moverte entre secciones.</p>
+        </div>
+        
+        <div id="about" class="page">
+            <h2>Acerca de Nosotros</h2>
+            <p>Somos un ejemplo de programación web frontend. Nuestro objetivo es demostrar cómo se pueden simular funcionalidades complejas sin un servidor.</p>
+        </div>
+
+        <div id="registro" class="page">
+            <h2>Formulario de Registro</h2>
+            <form id="registroForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" required>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" id="correo" name="correo" required>
+                </div>
+                <div class="form-group">
+                    <label for="numero">Número de Teléfono:</label>
+                    <input type="tel" id="numero" name="numero" required pattern="[0-9]{10}">
+                    <small>Formato: 10 dígitos (ej: 1234567890)</small>
+                </div>
+                <div class="form-group">
+                    <label for="cedula">Cédula:</label>
+                    <input type="text" id="cedula" name="cedula" required>
+                </div>
+                <div class="form-group">
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" name="direccion" required>
+                </div>
+                <div class="form-group">
+                    <label for="carrera">Carrera:</label>
+                    <select id="carrera" name="carrera" required>
+                        <option value="">Seleccione una</option>
+                        <option value="Informatica">Informatica</option>
+                        <option value="industria">Industria</option>
+                        <option value="agropecuaria">Agropecuaria</option>
+                        <option value="electronica">Electronica</option>
+                         <option value="mecanica">Mecanica</option>
+                        <option value="Electricidad">Electricidad</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="raza">Raza/Etnia (Opcional):</label>
+                    <input type="text" id="raza" name="raza">
+                </div>
+                <button type="submit">Enviar Registro</button>
+            </form>
+        </div>
+
+        <div id="data" class="page">
+            <h2> Registros Guardados</h2>
+
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Buscar por Nombre, Cédula o Correo...">
+                <button id="searchButton">Buscar</button>
+            </div>
+            
+            <table id="registrosTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo</th>
+                        <th>Cédula</th>
+                        <th>Dirección</th>
+                        <th>Carrera</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="registrosBody">
+                    <tr><td colspan="8" style="text-align: center;">No hay registros aún.</td></tr>
+                </tbody>
+            </table>
+            
+        </div>
+        
+    </div>
+
+    <script>
+        // JAVASCRIPT
+        
+        // 1. GESTIÓN DE LA NAVEGACIÓN (Simulación de Múltiples Páginas)
+        const pages = document.querySelectorAll('.page');
+        const navLinks = document.querySelectorAll('nav ul li a');
+
+        function showPage(pageId) {
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.page === pageId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                showPage(link.dataset.page);
+            });
+        });
+
+        // 2. GESTIÓN DE DATOS (Guardar, Mostrar, Actualizar, Eliminar, Buscar)
+        const registroForm = document.getElementById('registroForm');
+        const registrosBody = document.getElementById('registrosBody');
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        
+        let datosRegistrados = []; // Array para guardar los datos
+
+        // Función para renderizar la tabla con un array de datos (para buscar/filtrar)
+        function renderTable(dataArray) {
+            registrosBody.innerHTML = ''; // Limpiar tabla
+            
+            if (dataArray.length === 0) {
+                 registrosBody.innerHTML = '<tr><td colspan="8" style="text-align: center;">No hay registros que coincidan con la búsqueda.</td></tr>';
+                 return;
+            }
+
+            dataArray.forEach(registro => {
+                const row = registrosBody.insertRow();
+                row.dataset.id = registro.id; // Guardar ID en la fila para fácil referencia
+                
+                // Muestra la información directamente en las celdas
+                row.innerHTML = `
+                    <td>${registro.id}</td>
+                    <td data-field="nombre">${registro.nombre}</td>
+                    <td data-field="apellido">${registro.apellido}</td>
+                    <td data-field="correo">${registro.correo}</td>
+                    <td data-field="cedula">${registro.cedula}</td>
+                    <td data-field="direccion">${registro.direccion}</td>
+                    <td data-field="carrera">${registro.carrera}</td>
+                    <td>
+                        <button class="action-btn edit-btn" onclick="iniciarEdicion(${registro.id})">Actualizar</button>
+                        <button class="action-btn delete-btn" onclick="eliminarRegistro(${registro.id})">Eliminar</button>
+                        <button class="action-btn save-btn" style="display:none;" onclick="guardarEdicion(${registro.id})">Guardar</button>
+                        <button class="action-btn cancel-btn" style="display:none;" onclick="cancelarEdicion(${registro.id})">Cancelar</button>
+                    </td>
+                `;
+            });
+        }
+
+        // Cargar datos al iniciar
+        // Esta simulación NO guarda los datos si recargas la página,
+        // ya que necesitaría localStorage o un servidor real.
+        // Solo simula el flujo de datos.
+        renderTable(datosRegistrados); 
+
+        // A. FUNCIÓN DE GUARDAR/CREAR (Al enviar el formulario)
+        registroForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(registroForm);
+            const nuevoRegistro = {
+                id: Date.now(), // ID único basado en el tiempo
+                nombre: formData.get('nombre'),
+                apellido: formData.get('apellido'),
+                correo: formData.get('correo'),
+                numero: formData.get('numero'),
+                cedula: formData.get('cedula'),
+                direccion: formData.get('direccion'),
+                carrera: formData.get('carrera'),
+                raza: formData.get('raza') // Este campo no se muestra en la tabla por simplificar, pero se guarda
+            };
+            
+            datosRegistrados.push(nuevoRegistro);
+            registroForm.reset(); // Limpiar formulario
+            
+            // Renderizar la tabla y mover a la página de datos
+            renderTable(datosRegistrados); 
+            showPage('data'); 
+            alert('¡Registro guardado con éxito!');
+        });
+        
+        // B. FUNCIÓN DE ELIMINAR
+        window.eliminarRegistro = function(id) {
+            if (confirm(`¿Está seguro de que desea eliminar el registro ID ${id}?`)) {
+                datosRegistrados = datosRegistrados.filter(reg => reg.id !== id);
+                renderTable(datosRegistrados);
+                alert('Registro eliminado.');
+            }
+        };
+
+        // C. FUNCIONES DE ACTUALIZAR
+        let tempRowData = {}; // Objeto temporal para guardar el estado de la fila antes de editar
+
+        window.iniciarEdicion = function(id) {
+            const row = document.querySelector(`tr[data-id="${id}"]`);
+            if (!row) return;
+
+            const fields = ['nombre', 'apellido', 'correo', 'cedula', 'direccion', 'carrera'];
+            tempRowData[id] = {}; // Inicializa el objeto temporal para esta fila
+
+            fields.forEach(field => {
+                const cell = row.querySelector(`td[data-field="${field}"]`);
+                tempRowData[id][field] = cell.textContent; // Guardar el valor original
+                
+                // Reemplazar el texto de la celda con un campo de entrada editable
+                let inputHtml = '';
+                if (field === 'carrera') {
+                     // Caso especial para el select (carrera)
+                     inputHtml = `
+                        <select data-old-value="${cell.textContent}">
+                            <option value="Ingeniería">Ingeniería</option>
+                            <option value="Medicina">Medicina</option>
+                            <option value="Derecho">Derecho</option>
+                            <option value="Artes">Artes</option>
+                        </select>`;
+                     cell.innerHTML = inputHtml;
+                     // Selecciona el valor actual
+                     cell.querySelector('select').value = tempRowData[id][field];
+                } else {
+                    inputHtml = `<input type="text" value="${cell.textContent}">`;
+                    cell.innerHTML = inputHtml;
+                }
+            });
+
+            // Ocultar botones de 'Actualizar' y 'Eliminar'
+            row.querySelector('.edit-btn').style.display = 'none';
+            row.querySelector('.delete-btn').style.display = 'none';
+            
+            // Mostrar botones de 'Guardar' y 'Cancelar'
+            row.querySelector('.save-btn').style.display = 'inline-block';
+            row.querySelector('.cancel-btn').style.display = 'inline-block';
+        };
+
+        window.guardarEdicion = function(id) {
+            const row = document.querySelector(`tr[data-id="${id}"]`);
+            if (!row) return;
+            
+            // Encontrar el registro en el array
+            const registroIndex = datosRegistrados.findIndex(reg => reg.id === id);
+            if (registroIndex === -1) return;
+
+            const fields = ['nombre', 'apellido', 'correo', 'cedula', 'direccion', 'carrera'];
+            
+            fields.forEach(field => {
+                const cell = row.querySelector(`td[data-field="${field}"]`);
+                let newValue;
+
+                if (field === 'carrera') {
+                    // Obtener valor del select
+                    const select = cell.querySelector('select');
+                    newValue = select.value;
+                } else {
+                    // Obtener valor del input
+                    const input = cell.querySelector('input');
+                    newValue = input.value;
+                }
+                
+                // 1. Actualizar el objeto en el array principal
+                datosRegistrados[registroIndex][field] = newValue;
+                
+                // 2. Restaurar la celda a texto
+                cell.innerHTML = newValue;
+            });
+            
+            // Ocultar botones de 'Guardar' y 'Cancelar'
+            row.querySelector('.save-btn').style.display = 'none';
+            row.querySelector('.cancel-btn').style.display = 'none';
+            
+            // Mostrar botones de 'Actualizar' y 'Eliminar'
+            row.querySelector('.edit-btn').style.display = 'inline-block';
+            row.querySelector('.delete-btn').style.display = 'inline-block';
+
+            delete tempRowData[id]; // Limpiar datos temporales
+            alert('Registro actualizado con éxito.');
+        };
+        
+        window.cancelarEdicion = function(id) {
+            const row = document.querySelector(`tr[data-id="${id}"]`);
+            if (!row || !tempRowData[id]) return;
+
+            const fields = ['nombre', 'apellido', 'correo', 'cedula', 'direccion', 'carrera'];
+
+            fields.forEach(field => {
+                const cell = row.querySelector(`td[data-field="${field}"]`);
+                // Restaurar el texto original de la celda
+                cell.innerHTML = tempRowData[id][field]; 
+            });
+
+            // Ocultar botones de 'Guardar' y 'Cancelar'
+            row.querySelector('.save-btn').style.display = 'none';
+            row.querySelector('.cancel-btn').style.display = 'none';
+            
+            // Mostrar botones de 'Actualizar' y 'Eliminar'
+            row.querySelector('.edit-btn').style.display = 'inline-block';
+            row.querySelector('.delete-btn').style.display = 'inline-block';
+
+            delete tempRowData[id]; // Limpiar datos temporales
+            alert('Edición cancelada.');
+        };
+
+        // D. FUNCIÓN DE BUSCAR/FILTRAR
+        searchButton.addEventListener('click', () => {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+
+            if (searchTerm === '') {
+                renderTable(datosRegistrados); // Mostrar todo si no hay término de búsqueda
+                return;
+            }
+
+            const resultados = datosRegistrados.filter(registro => 
+                registro.nombre.toLowerCase().includes(searchTerm) ||
+                registro.apellido.toLowerCase().includes(searchTerm) ||
+                registro.correo.toLowerCase().includes(searchTerm) ||
+                registro.cedula.toLowerCase().includes(searchTerm)
+            );
+            
+            renderTable(resultados);
+        });
+
+    </script>
+
+</body>
+</html>
